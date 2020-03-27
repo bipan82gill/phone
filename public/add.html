@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>add-contact</title>
+    <link rel="stylesheet" href="./css/navigation.css">
+    <link rel="stylesheet" href="./css/contact.css">
+
+</head>
+<body>
+    <div class="navigation">
+        <input type="checkbox" class="navigation_checkbox" id="navi-toggle">
+        <label for="navi-toggle" class="navigation_button">
+            <span class="navigation_icon">
+                &nbsp;
+            </span>
+        </label>
+        <div class="navigation_background">
+            &nbsp;
+        </div>
+        <nav class="navigation_nav">
+            <ul class="navigation_list">
+                <li class="navigation_item"><a href="#" class="navigation_links">Add</a></li>
+                <li class="navigation_item"><a href="#" class="navigation_links">Delete</a></li>
+                <li class="navigation_item"><a href="#" class="navigation_links">Edit</a></li>
+            </ul>
+        </nav>
+    </div>
+    <section class="section_contact">
+        <div class="row">
+                <div class="contact-form">
+                    <form action="POST" class="form">
+                        <div class="form_group">
+                            <input type="text" class="form_input" id="firstName" placeholder="FirstName" required/>
+                            <label for="name" class="form_label">FirstName</label>
+                        </div>
+                        <div class="form_group">
+                            <input type="text" class="form_input" id="lastName" placeholder="LastName" required/>
+                            <label for="name" class="form_label">LastName</label>
+                        </div>
+                        <div class="form_group">
+                            <input type="email" class="form_input" id="email" placeholder="Email"required/>
+                            <label for="email" class="form_label">Email</label>
+                        </div>
+                        <div class="form_group">
+                            <input type="number" class="form_input" id="contactNumber" placeholder="Number" required/>
+                            <label for="name" class="form_label">Number</label>
+                        </div>
+                        <div class="form_group">
+                            <button class="btn-btn-footer-btn">Add new number</button>
+                        </div>
+                    </form>            
+                </div>
+        </div>
+   </section>
+   <footer class="footer">
+    <div class="row">
+        <div class="col-1-of-2">
+            <button class="btn-btn-footer-btn">Keypad</button>
+        </div>
+        <div class="col-1-of-2">
+            <button class="btn-btn-footer-btn">Contacts</button>
+        </div>
+    </div>
+</footer>
+    
+</body>
+</html>
