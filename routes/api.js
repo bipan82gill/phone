@@ -14,10 +14,9 @@ module.exports = function(app) {
 
   // GET route for getting all of the contacts
   app.get("/api/contacts", function(req, res) {
-    var query = {};
     
    // here we find all contacts from database 
-    db.Post.findAll({})
+    db.Contact.findAll({})
     .then(function(dbContact) {
       res.json(dbContact);
     });
