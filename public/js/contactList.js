@@ -1,7 +1,7 @@
 $(document).ready(function() {
     /* global moment */
     //contactList Container holds all of our contacts
-    var contactContainer = $(".contacts-container");
+    var contactContainer = $("#contacts-container");
     $(document).on("click", "button.delete", handleContactDelete);
     $(document).on("click", "button.edit", handleContactEdit);
     
@@ -51,13 +51,13 @@ $(document).ready(function() {
       for (var i = 0; i < contacts.length; i++) {
         contactsToAdd.push(createNewRow(contacts[i]));
       }
-      questionContainer.append(contactsToAdd);
+      contactContainer.append(contactsToAdd);
     }
     
     // This function constructs a contact's HTML
     function createNewRow(contact) {
-      var formattedDate = new Date(question.createdAt);
-      formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
+      // var formattedDate = new Date(contact.createdAt);
+      // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
       var newQCard = $("<div>");
       newQCard.addClass("card");
       var newQCardHeading = $("<div>");
@@ -69,19 +69,13 @@ $(document).ready(function() {
       editBtn.text("EDIT");
       editBtn.addClass("edit btn btn-info");
       var newQTitle = $("<h2>");
-      var newQDate = $("<br/><h6 style=float:right>");
-      var newQ = $("<h5>");
-      //   newPostAuthor.text("Written by: " + question.Title);
-      //   newPostAuthor.css({
-      //     float: "right",
-      //     color: "blue",
-      //     "margin-top":
-      //     "-10px"
-      //   });
+      // var newQDate = $("<br/><h6 style=float:right>");
+      var newQTitle = $("<h5>");
+     
       var newQCardBody = $("<div>");
       newQCardBody.addClass("card-body");
       var newQBody = $("<p>");
-      newQTitle.text(contact.firstName + " "+contact.lastName);
+      newQTitle.text(contact.firstName + " "+ contact.lastName);
       newQBody.text(contact.contactNumber);
       newQCardHeading.append(deleteBtn);
       newQCardHeading.append(editBtn);
