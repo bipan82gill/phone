@@ -3,7 +3,7 @@
     width:100%vh;
     background-image:linear-gradient(to right bottom,   
     rgba(172, 233, 60, 0.705), rgba(31, 155, 15, 0.753));
-    justify-content: center;
+
 }
 .contact{
     background-image: linear-gradient(105deg,
@@ -60,4 +60,15 @@
     opacity: 0;
     visibility: hidden;
     transform:translateY(-4rem);
+}
+ul{
+    width:100%vh;
+    list-style: none;
+    margin:5rem auto;
+    text-decoration:none;
+}
+li{
+    background-color: rgb(153, 223, 132);
+    padding: 3rem;
+    margin-bottom:1rem;
 }

@@ -7,7 +7,7 @@ $(document).ready(function() {
     
     var contacts;
     var contactList = $("#btn-contacts");
-  $(contactList).on("click", getContacts);
+    $(contactList).on("click", getContacts);
     var url = window.location.search;
     var contactId;
     if (url.indexOf("?contact_id=") !== -1) {
@@ -20,7 +20,7 @@ $(document).ready(function() {
     }
     // This function grabs contacts from the database and updates the view
     function getContacts(contact) {
-      console.log(contact);
+    
       contactId = contact || "";
       if (contactId) {
         contactId = "/?contact_id=" + contactId;
@@ -39,7 +39,7 @@ $(document).ready(function() {
     function deleteContact(id) {
       $.ajax({
         method: "DELETE",
-        url: "/contacts/" + id
+        url: "/api/contacts/" + id
       }).then(function() {
         getContacts();
       });
@@ -56,36 +56,33 @@ $(document).ready(function() {
     
     // This function constructs a contact's HTML
     function createNewRow(contact) {
-      // var formattedDate = new Date(contact.createdAt);
-      // formattedDate = moment(formattedDate).format("MMMM Do YYYY, h:mm:ss a");
-      var newQCard = $("<div>");
-      newQCard.addClass("card");
-      var newQCardHeading = $("<div>");
-      newQCardHeading.addClass("card-header");
+    
+      
+      var div= $("<div>");
+      div.addClass("card");
       var deleteBtn = $("<button style=float:right>");
       deleteBtn.text("x");
       deleteBtn.addClass("delete btn btn-danger");
       var editBtn = $("<button style=float:right>");
       editBtn.text("EDIT");
       editBtn.addClass("edit btn btn-info");
-      var newQTitle = $("<h2>");
-      // var newQDate = $("<br/><h6 style=float:right>");
-      var newQTitle = $("<h5>");
-     
-      var newQCardBody = $("<div>");
-      newQCardBody.addClass("card-body");
-      var newQBody = $("<p>");
-      newQTitle.text(contact.firstName + " "+ contact.lastName);
-      newQBody.text(contact.contactNumber);
-      newQCardHeading.append(deleteBtn);
-      newQCardHeading.append(editBtn);
-      newQCardHeading.append(newQTitle);
-      newQCardBody.append(newQBody);
-      newQCard.append(newQCardHeading);
-      newQCard.append(newQCardBody);
-      newQCard.data("contact", contact);
-      
-    }
+      var list =$("<li>");
+      list.addClass("list");
+      var heading=$("<h2>");
+      heading.addClass("title");
+      heading.text(contact.firstName+" "+contact.lastName);
+      var subheading =$("<h3>");
+      subheading.addClass("subTitle");
+      subheading.text(contact.contactNumber);
+      subheading.append(deleteBtn);
+      subheading.append(editBtn);
+      list.append(heading);
+      list.append(subheading);
+      div.append(list);
+      list.data("contact", contact)
+      div.data("contact", contact);
+      return div;  
+ }
     //This function figures out which contact we want to delete and then calls deleteContact
     function handleContactDelete() {
       var currentContact = $(this)

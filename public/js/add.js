@@ -26,7 +26,7 @@ $(document).ready(function() {
         event.preventDefault();
       // Wont submit the contact if we are missing any input field
       if (!firstName.val().trim()
-           || !lastName.val().trim()
+           ||!lastName.val().trim()
            ||!email.val().trim()
            ||!contactNumber.val().trim()) {
         return;
@@ -67,7 +67,7 @@ $(document).ready(function() {
           firstName.val(result[i].firstName);
           lastName.val(result[i].lastName);
           email.val(result[i].email);
-          contact.val(result[i].contactNumber);
+          contactNumber.val(result[i].contactNumber);
           updating = true;
         }
       
